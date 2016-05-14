@@ -6,13 +6,19 @@ app
 
     .controller('categoryList', function ($scope, categoryProvider) {
         $scope.categories = categoryProvider.getCategories();
+        
+    //On ajoute une fonction pour supprimer une catégorie
+       $scope.remove = function (category) {
+          categoryProvider.remove(category);
+        }
+    
     })
 
     .controller('categoryCreate', function ($scope, categoryProvider) {
         $scope.categories = categoryProvider.getCategories();
 
         $scope.createCategory = function (category) {
-            $scope.categories = categoryProvider.create(category);
+        categoryProvider.create(category);
         }
     })
 
